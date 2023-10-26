@@ -1,9 +1,9 @@
 public class Passageiro extends Usuario {
-    protected int passaporteId;
-    protected int codPassagem;
+    protected String passaporteId;
+    protected String codPassagem;
 
-    public Passageiro(int id, String nome, String anoNascimento, String cpf, int passaporteId, int codPassagem){
-        super(id, nome, anoNascimento, cpf);
+    public Passageiro(String cargo, int id, String nome, String anoNascimento, String cpf, String passaporteId, String codPassagem){
+        super(cargo, id, nome, anoNascimento, cpf);
         this.passaporteId = passaporteId;
         this.codPassagem = codPassagem;
     }

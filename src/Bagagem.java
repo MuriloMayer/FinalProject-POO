@@ -1,9 +1,9 @@
 public class Bagagem{
-    private boolean checada;
-    private int idBagagem;
-    private int idDono;
-    private double peso;
-    private Passageiro passageiro;
+    public boolean checada;
+    public int idBagagem;
+    public int idDono;
+    public double peso;
+    public Passageiro passageiro;
 
     public Bagagem(boolean checada, int idBagagem, int idDono, double peso){
         this.checada = checada;
