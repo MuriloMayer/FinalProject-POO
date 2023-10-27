@@ -11,4 +11,6 @@ public class Bagagem{
         this.idDono = idDono;
         this.peso = peso;
     }
+
+    public void mostrarBagagem(){}
 }
