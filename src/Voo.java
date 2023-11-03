@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Voo {
     public int id;
     public String status;
@@ -21,8 +23,8 @@ public class Voo {
 
     };
 
-    public void verificarPesoMaximo(){
-        
-    }
+    public void verificarVoo(){}
+
+    public void verificarPesoMaximo(){}
     
 }

@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Passageiro extends Usuario {
     protected String passaporteId;
     protected String codPassagem;
@@ -8,24 +10,18 @@ public class Passageiro extends Usuario {
         this.codPassagem = codPassagem;
     }
 
-    public void registrarVoo(){
 
-    }
-
-    public void checkOutPassageiro(){
-
-    }
     
-    public void editarCadastroPassageiro(){
+    public void mostrarInfo(){} 
 
-    }
+    public void registrarVoo(){}
 
-    public void cadastrarPassageiro(){
+    public void checkOutPassageiro(){}
+    
+    public void editarCadastroPassageiro(){}
 
-    }
+    public void cadastrarPassageiro(){}
 
-    public void registrarBagagem(){
-
-    }
+    public void registrarBagagem(){}
     
 }

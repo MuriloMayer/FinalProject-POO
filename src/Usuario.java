@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Usuario {
     protected String cargo;
     protected int id;
@@ -14,4 +16,6 @@ public class Usuario {
         this.anoNascimento = anoNascimento;
         this.cpf = cpf;
     }
+
+    public void mostrarInfo(){}   
 }

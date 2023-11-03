@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Bagagem{
     public boolean checada;
     public int idBagagem;

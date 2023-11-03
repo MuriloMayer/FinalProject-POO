@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Recepcionista extends Usuario{
     private String email;
     private String senha;
@@ -8,16 +10,12 @@ public class Recepcionista extends Usuario{
         this.senha = senha;
     }
 
-    public void verificarVoo(){
+    public void mostrarInfo(){}
 
-    }
+    public void verificarVoo(){}
 
-    public void verificarBagagem(){
+    public void verificarBagagem(){}
 
-    }
-
-    public void cadastroRecepcionista(){
-        
-    }
+    public void cadastroRecepcionista(){}
     
 }
