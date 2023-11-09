@@ -43,7 +43,7 @@ public class Passageiro extends Usuario {
     }
 
     
-    public static void exibirInfo(Passageiro [] passageiros){
+    public static void exibirPassageiros(Passageiro [] passageiros){
         for(Passageiro passageiro : passageiros){
             System.out.println( "Cargo: " + passageiro.getCargo() + "\n" +
                                 "ID: " + passageiro.getId() + "\n" +

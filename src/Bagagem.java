@@ -14,6 +14,31 @@ public class Bagagem{
         this.peso = peso;
     }
 
-    public void mostrarBagagem(){}
+    public boolean getChecada(){
+        return checada;
+    }
+
+    public int getIdBagagem(){
+        return idBagagem;
+    }
+
+    public int getIdDono(){
+        return idDono;
+    }
+
+    public double getPeso(){
+        return peso;
+    }
+
+    public static void exibirBagagem(Bagagem[] bagagens){
+        for(Bagagem bagagem : bagagens){
+        System.out.println("-Bagagem foi checada: " + bagagem.getChecada() + "\n" +
+        "-ID da bagagem: " + bagagem.getIdBagagem() + "\n" +
+       "-Id do Dono da bagagem: " + bagagem.getIdDono() + "\n" +
+       "-Peso: " + bagagem.getPeso() + "\n" +
+       "--------------------"
+       );
+    };
+    }
     
 }
