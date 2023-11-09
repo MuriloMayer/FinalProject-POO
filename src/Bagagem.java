@@ -40,5 +40,15 @@ public class Bagagem{
        );
     };
     }
-    
-}
+
+    public void verificarBagagem(){
+        if (this.checada == true){
+            System.out.println("Bagagem ja foi verificada");
+        
+        }else{
+            System.out.println("Bagagem ainda não foi verificada");
+        }
+    }
+
+    }
+

@@ -70,8 +70,13 @@ public class Voo {
     }
     };
 
-    public void verificarVoo(){}
+    public void verificarVoo(){
+        System.out.println(this.status);
+        
+    }
 
-    public void verificarPesoMaximo(){}
+    public void verificarPesoMaximo(){
+        System.out.println(this.pesoMaximo);
+    }
 
 }
