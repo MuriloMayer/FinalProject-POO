@@ -10,9 +10,53 @@ public class Passageiro extends Usuario {
         this.codPassagem = codPassagem;
     }
 
+    public String getCargo(){
+      return cargo;
+    } 
+
+    public int getId(){
+      return id;
+    } 
+
+     public String getGenero(){
+      return genero;
+    }
+
+  public String getNome(){
+      return nome;
+    }  
+
+     public String getAnoNascimento(){
+      return anoNascimento;
+    }
+
+     public String getCpf(){
+      return cpf;
+    }
+
+     public String getPassaporteId(){
+      return passaporteId;
+    }
+
+     public String getCodPassagem(){
+      return codPassagem;
+    }
 
     
-    public void mostrarInfo(){} 
+    public static void exibirInfo(Passageiro [] passageiros){
+        for(Passageiro passageiro : passageiros){
+            System.out.println( "Cargo: " + passageiro.getCargo() + "\n" +
+                                "ID: " + passageiro.getId() + "\n" +
+                                "Gênero: " + passageiro.getGenero() + "\n" +
+                                "Nome " + passageiro.getNome() + "\n" + 
+                                "Ano de Nascimento: " + passageiro.getAnoNascimento() + "\n" + 
+                                "CPF: " + passageiro.getCpf() + "\n" + 
+                                "Id do Passaporte: " + passageiro.getPassaporteId() + "\n" + 
+                                "Código da Passagem: " + passageiro.getCodPassagem() + "\n" +
+                                "--------------------");
+            
+        }
+    } 
 
     public void registrarVoo(){}
 

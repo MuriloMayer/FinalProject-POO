@@ -6,37 +6,25 @@ public class App {
       ArrayList <Usuario> usuarios = new ArrayList<>();
       
       //PASSAGEIROS
-      ArrayList <Passageiro> passageiros = new ArrayList<>();
-      Passageiro Lucas = new Passageiro("Passageiro", 1,"Masculino", "Lucas Baumer", "2004", "07290384920", "CS265436", "G3-9900");
-      Passageiro Murilo = new Passageiro("Passageiro", 2,"Masculino", "Murilo Mayer", "2004", "82932183749", "IT228726", "A8-4207");
-      passageiros.add(Lucas);
-      passageiros.add(Murilo);
+      Passageiro[] passageiros = new Passageiro[1];
+      passageiros[1] = new Passageiro("Passageiro", 1,"Masculino", "Lucas Baumer", "2004", "07290384920", "CS265436", "G3-9900");
+      passageiros[2] = new Passageiro("Passageiro", 2,"Masculino", "Murilo Mayer", "2004", "82932183749", "IT228726", "A8-4207");
 
+     Passageiro.exibirInfo(passageiros);
 
-      for(int i = 0;i < passageiros.size(); i++){
-          System.out.println("-Nome: " + passageiros.get(i).nome + "\n" +
-                            "-Id: " + passageiros.get(i).id +"\n" + 
-                            "-Gênero: " + passageiros.get(i).genero +"\n" + 
-                            "-Ano de Nascimento: " + passageiros.get(i).anoNascimento + "\n" +
-                            "-Cpf: " + passageiros.get(i).cpf + "\n" +
-                            "-ID do Passaporte : " + passageiros.get(i).passaporteId + "\n" +
-                            "-Código da Passagem : " + passageiros.get(i).codPassagem + "\n" +
-                            "-----------------------------------------------------------------"
-                            );
-
-    };
+   
 
         //RECEPCIONISTAS
 
         ArrayList <Recepcionista> recepcionistas = new ArrayList<>();
 
-      Recepcionista Maria = new Recepcionista("Recepcionista", 1,"Feminino", "Maria dos Santos", "1983", "94203819203", "mardosS@skyboard.com", "madoss1322");
-      Recepcionista Matheus = new Recepcionista("Recepcionista", 2,"Masculino", "Matheus Kormann", "1996", "37281934592", "Matkormmn@Skyboard.com", "mattkom2020");
-      recepcionistas.add(Maria);
-      recepcionistas.add(Matheus);
+        Recepcionista Maria = new Recepcionista("Recepcionista", 1,"Feminino", "Maria dos Santos", "1983", "94203819203", "mardosS@skyboard.com", "madoss1322");
+        Recepcionista Matheus = new Recepcionista("Recepcionista", 2,"Masculino", "Matheus Kormann", "1996", "37281934592", "Matkormmn@Skyboard.com", "mattkom2020");
+        recepcionistas.add(Maria);
+        recepcionistas.add(Matheus);
 
-      for(int i = 0; i < recepcionistas.size(); i++){
-        System.out.println("-Nome: " + recepcionistas.get(i).nome + "\n" +
+        for(int i = 0; i < recepcionistas.size(); i++){
+         System.out.println("-Nome: " + recepcionistas.get(i).nome + "\n" +
                            "-Cargo: " + recepcionistas.get(i).cargo + "\n" +
                            "-Gênero: " + recepcionistas.get(i).genero + "\n" +
                           "-Ano de Nascimento: " + recepcionistas.get(i).anoNascimento + "\n" +
