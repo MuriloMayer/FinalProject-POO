@@ -12,6 +12,7 @@ package sky.skyboard;
 public class SkyBoard {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        SkyboardPrincipal frame = new SkyboardPrincipal();
+        frame.setVisible(true);
     }
 }
