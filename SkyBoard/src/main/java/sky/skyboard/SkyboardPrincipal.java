@@ -100,8 +100,13 @@ public class SkyboardPrincipal extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        home frame = new home();
-        frame.setVisible(true);
+        Home Home = new Home();
+        
+        this.dispose();
+        
+        Home.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        Home.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jPasswordField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jPasswordField1ActionPerformed
