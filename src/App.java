@@ -32,9 +32,11 @@ public class App {
 
         //VOO
 
-        Voo[] voos = new Voo[1];
-        voos[0] = new Voo(1323, "Decolando","Guarulhos", "Curitiba", "15:30","Airbus A321", 220, 93000);
-        
+        Voo[] voos = new Voo[2];
+        voos[0] = new Voo(1323, "Decolando","Guarulhos-GRU", "Curitiba-CWB", "15:30","Airbus A321", 220, 93000);
+        voos[1] = new Voo(2342, "Esperando decolagem","Curitiba-CWB", "Congonhas-CGH", "10:00","Airbus A321", 220, 93000);
+
+
         Voo.exibirVoo(voos);
     };
 }
