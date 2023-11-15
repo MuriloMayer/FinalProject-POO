@@ -33,8 +33,10 @@ public class SkyboardPrincipal extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Login");
         setBackground(new java.awt.Color(214, 214, 253));
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 36)); // NOI18N
         jLabel1.setText("SkyBoard");
@@ -96,6 +98,9 @@ public class SkyboardPrincipal extends javax.swing.JFrame {
         );
 
         jLabel1.getAccessibleContext().setAccessibleDescription("");
+
+        pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

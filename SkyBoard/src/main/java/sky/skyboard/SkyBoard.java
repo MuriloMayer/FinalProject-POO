@@ -2,7 +2,7 @@ package sky.skyboard;
 
 import java.util.ArrayList;
 
-public class App {
+public class SkyBoard {
     public static void main(String[] args) throws Exception {
 
         SkyboardPrincipal frame = new SkyboardPrincipal();

@@ -28,27 +28,27 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnPassengerList = new javax.swing.JButton();
+        btnBaggageList = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 36)); // NOI18N
         jLabel1.setText("SkyBoard");
 
-        jButton1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        jButton1.setText("Lista De Passageiros");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnPassengerList.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnPassengerList.setText("Lista De Passageiros");
+        btnPassengerList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnPassengerListActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        jButton3.setText("Lista De Bagagens");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnBaggageList.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnBaggageList.setText("Lista De Bagagens");
+        btnBaggageList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnBaggageListActionPerformed(evt);
             }
         });
 
@@ -59,9 +59,9 @@ public class Home extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 155, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBaggageList, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1))
+                    .addComponent(btnPassengerList))
                 .addGap(156, 156, 156))
         );
         layout.setVerticalGroup(
@@ -70,22 +70,34 @@ public class Home extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(jLabel1)
                 .addGap(66, 66, 66)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnPassengerList, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnBaggageList, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void btnPassengerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassengerListActionPerformed
+       PassengerList Passengers = new PassengerList();
+        
+        this.dispose();
+        
+        Passengers.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        Passengers.setVisible(true);
+    }//GEN-LAST:event_btnPassengerListActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void btnBaggageListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaggageListActionPerformed
+        BaggageList Baggages = new BaggageList();
+        
+        this.dispose();
+        
+        Baggages.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        Baggages.setVisible(true);
+    }//GEN-LAST:event_btnBaggageListActionPerformed
 
     /**
      * @param args the command line arguments
@@ -123,8 +135,8 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton btnBaggageList;
+    private javax.swing.JButton btnPassengerList;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
