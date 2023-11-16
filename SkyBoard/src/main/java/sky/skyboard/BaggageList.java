@@ -58,11 +58,11 @@ public class BaggageList extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Passageiro Responsavel", "Peso"
+                "Passageiro Responsavel"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false
+                false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
