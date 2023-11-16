@@ -1,6 +1,8 @@
 package sky.skyboard;
 
+import javax.swing.JOptionPane;
 import static sky.skyboard.BaggageList.listarBagagens;
+import static sky.skyboard.FlightsList.listarVoos;
 import static sky.skyboard.PassengerList.listarPassageiros;
 
 /*
@@ -30,9 +32,14 @@ public class Home extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        btnPassengerList = new javax.swing.JButton();
+        btnFlightsList = new javax.swing.JButton();
         btnBaggageList = new javax.swing.JButton();
+        btnPassengerList1 = new javax.swing.JButton();
+        btnOut = new javax.swing.JButton();
+
+        jButton1.setText("jButton1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Home");
@@ -41,11 +48,11 @@ public class Home extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 36)); // NOI18N
         jLabel1.setText("SkyBoard");
 
-        btnPassengerList.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
-        btnPassengerList.setText("Lista De Passageiros");
-        btnPassengerList.addActionListener(new java.awt.event.ActionListener() {
+        btnFlightsList.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnFlightsList.setText("Voos Ativos");
+        btnFlightsList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnPassengerListActionPerformed(evt);
+                btnFlightsListActionPerformed(evt);
             }
         });
 
@@ -57,44 +64,68 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
+        btnPassengerList1.setFont(new java.awt.Font("Yu Gothic UI", 1, 18)); // NOI18N
+        btnPassengerList1.setText("Lista De Passageiros");
+        btnPassengerList1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPassengerList1ActionPerformed(evt);
+            }
+        });
+
+        btnOut.setText("Sair");
+        btnOut.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnOutActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(0, 155, Short.MAX_VALUE)
+                .addGap(150, 150, 150)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPassengerList)
-                    .addComponent(btnBaggageList, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(156, 156, 156))
+                    .addComponent(btnFlightsList, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBaggageList, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnPassengerList1))
+                .addContainerGap(151, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnOut, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(26, 26, 26)
+                .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
-                .addComponent(btnPassengerList, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(btnPassengerList1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addComponent(btnBaggageList, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addGap(18, 18, 18)
+                .addComponent(btnFlightsList, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(btnOut, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnPassengerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassengerListActionPerformed
-       PassengerList Passengers = new PassengerList();
+    private void btnFlightsListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFlightsListActionPerformed
+       FlightsList flightsList = new FlightsList();
         
         this.dispose();
         
-        Passengers.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        flightsList.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
-        Passengers.setVisible(true);
-        listarPassageiros();
-    }//GEN-LAST:event_btnPassengerListActionPerformed
+        flightsList.setVisible(true);
+        listarVoos();
+    }//GEN-LAST:event_btnFlightsListActionPerformed
 
     private void btnBaggageListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaggageListActionPerformed
         BaggageList Baggages = new BaggageList();
@@ -106,6 +137,25 @@ public class Home extends javax.swing.JFrame {
         Baggages.setVisible(true);
         listarBagagens();
     }//GEN-LAST:event_btnBaggageListActionPerformed
+
+    private void btnPassengerList1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassengerList1ActionPerformed
+        PassengerList passengerList = new PassengerList();
+        
+        this.dispose();
+        
+        passengerList.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        passengerList.setVisible(true);
+        listarPassageiros();
+    }//GEN-LAST:event_btnPassengerList1ActionPerformed
+
+    private void btnOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutActionPerformed
+        int resposta = JOptionPane.showConfirmDialog(this, "Deseja Realmente Sair?", "Sair", JOptionPane.YES_NO_OPTION);
+
+        if (resposta == JOptionPane.YES_OPTION) {
+            System.exit(0);
+        }
+    }//GEN-LAST:event_btnOutActionPerformed
 
     /**
      * @param args the command line arguments
@@ -144,7 +194,10 @@ public class Home extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBaggageList;
-    private javax.swing.JButton btnPassengerList;
+    private javax.swing.JButton btnFlightsList;
+    private javax.swing.JButton btnOut;
+    private javax.swing.JButton btnPassengerList1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

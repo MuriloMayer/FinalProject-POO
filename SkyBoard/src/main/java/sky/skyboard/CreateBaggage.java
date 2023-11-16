@@ -6,6 +6,7 @@ package sky.skyboard;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static sky.skyboard.BaggageList.listarBagagens;
@@ -19,6 +20,9 @@ import static sky.skyboard.PassengerList.listarPassageiros;
 public class CreateBaggage extends javax.swing.JFrame {
         Bagagem bagagem = new Bagagem();
         File file = new File();
+        
+       
+
     /**
      * Creates new form CreateBaggage
      */
@@ -37,17 +41,18 @@ public class CreateBaggage extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        name = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cpf = new javax.swing.JTextField();
+        ComboCpf = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        passport = new javax.swing.JTextField();
+        ComboPassaporte = new javax.swing.JTextField();
         btnOut = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         peso = new javax.swing.JTextField();
+        ComboNome = new javax.swing.JComboBox<>();
+        btnSave = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,9 +62,9 @@ public class CreateBaggage extends javax.swing.JFrame {
 
         jLabel4.setText("Passaporte");
 
-        passport.addActionListener(new java.awt.event.ActionListener() {
+        ComboPassaporte.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passportActionPerformed(evt);
+                ComboPassaporteActionPerformed(evt);
             }
         });
 
@@ -70,10 +75,10 @@ public class CreateBaggage extends javax.swing.JFrame {
             }
         });
 
-        btnSave.setText("Salvar");
-        btnSave.addActionListener(new java.awt.event.ActionListener() {
+        btnBack.setText("Voltar");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSaveActionPerformed(evt);
+                btnBackActionPerformed(evt);
             }
         });
 
@@ -84,6 +89,19 @@ public class CreateBaggage extends javax.swing.JFrame {
         jLabel6.setText("Dados Do Responsavel");
 
         jLabel5.setText("Peso Da Mala");
+
+        ComboNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboNomeActionPerformed(evt);
+            }
+        });
+
+        btnSave.setText("Salvar");
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -100,23 +118,26 @@ public class CreateBaggage extends javax.swing.JFrame {
                         .addComponent(jLabel2)
                         .addComponent(jLabel3)
                         .addComponent(jLabel4)
-                        .addComponent(name)
-                        .addComponent(cpf)
-                        .addComponent(passport, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel6))
+                        .addComponent(ComboCpf)
+                        .addComponent(ComboPassaporte, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(ComboNome, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 19, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnOut, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(17, 17, 17))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5))
-                        .addGap(39, 39, 39))))
+                        .addGap(39, 39, 39))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnOut, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(17, 17, 17))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,24 +150,28 @@ public class CreateBaggage extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(name, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(peso, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(passport, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(ComboCpf, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(ComboPassaporte, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOut, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(25, 25, 25))
         );
 
@@ -154,18 +179,37 @@ public class CreateBaggage extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void passportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passportActionPerformed
+    private void ComboPassaporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboPassaporteActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_passportActionPerformed
+    }//GEN-LAST:event_ComboPassaporteActionPerformed
 
     private void btnOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOutActionPerformed
-        // TODO add your handling code here:
+    int resposta = JOptionPane.showConfirmDialog(this, "Deseja Realmente Sair?", "Sair", JOptionPane.YES_NO_OPTION);
+    
+     if (resposta == JOptionPane.YES_OPTION) {
+        System.exit(0);
+    }
     }//GEN-LAST:event_btnOutActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        BaggageList Baggages = new BaggageList();
+        
+        this.dispose();
+        
+        Baggages.setDefaultCloseOperation(EXIT_ON_CLOSE);
+        
+        Baggages.setVisible(true);
+        listarBagagens();
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    private void ComboNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboNomeActionPerformed
+
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
-        bagagem.setNomeDono(name.getText());
-        bagagem.setCpfDono(cpf.getText());
-        bagagem.setPassaporteDono(passport.getText());
+        bagagem.setNomeDono(ComboNome.getSelectedItem().toString());
+        bagagem.setCpfDono(ComboCpf.getText());
+        bagagem.setPassaporteDono(ComboPassaporte.getText());
         bagagem.setPeso(peso.getText());
        
         try {
@@ -185,14 +229,14 @@ public class CreateBaggage extends javax.swing.JFrame {
         
 
         this.clearFilds();
-           
+      
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
+        CreateBaggage obj = new CreateBaggage();
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
@@ -217,30 +261,50 @@ public class CreateBaggage extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new CreateBaggage().setVisible(true);
+                obj.povoarCombo();
             }
         });
     }
    public void clearFilds() {
-        name.setText(" ");
-        cpf.setText(" ");
-        passport.setText(" ");
+
+        ComboCpf.setText(" ");
+        ComboPassaporte.setText(" ");
         peso.setText(" ");
     }
+public String listaNomePassageiros() {
+    File file = new File();
+    
+    ArrayList<Passageiro> passageiros = new ArrayList<>();
+    String nomePassageiros = ""; 
+    passageiros = file.listPassenger();
+    
+    for (int i = 0; i < passageiros.size(); i++) {
+        Passageiro passageiro = passageiros.get(i);
+        nomePassageiros += passageiro.getNome() + " "; 
+    }
+    return nomePassageiros.trim(); 
+}
+
+public void povoarCombo() {
+    ComboNome.setModel(new DefaultComboBoxModel(listaNomePassageiros().split(" ")));
+}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField ComboCpf;
+    private javax.swing.JComboBox<String> ComboNome;
+    private javax.swing.JTextField ComboPassaporte;
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnOut;
     private javax.swing.JButton btnSave;
-    private javax.swing.JTextField cpf;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField name;
-    private javax.swing.JTextField passport;
     private javax.swing.JTextField peso;
     // End of variables declaration//GEN-END:variables
 }

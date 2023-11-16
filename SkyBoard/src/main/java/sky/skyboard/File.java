@@ -23,28 +23,33 @@ import java.util.logging.Logger;
  * @author Murilo
  */
 public class File {
+
+    // Passenger.Txt
     OutputStream osP;
     OutputStreamWriter oswP;
     BufferedWriter bwP;
-    
     InputStream isP;
     InputStreamReader isrP;
     BufferedReader brP;
     
+    // Baggage.Txt
     OutputStream osB;
     OutputStreamWriter oswB;
     BufferedWriter bwB;
-    
     InputStream isB;
     InputStreamReader isrB;
     BufferedReader brB;
+    
+    //Flights.Txt
+    InputStream isF;
+    InputStreamReader isrF;
+    BufferedReader brF;
     
     public File() {
         try {
             osP = new FileOutputStream("Passageiros.txt",true);
             oswP = new OutputStreamWriter(osP);
-            bwP = new BufferedWriter(oswP);
-            
+            bwP = new BufferedWriter(oswP); 
             osB = new FileOutputStream("Bagagens.txt",true);
             oswB = new OutputStreamWriter(osB);
             bwB = new BufferedWriter(oswB);
@@ -53,10 +58,14 @@ public class File {
             isP = new FileInputStream("Passageiros.txt");
             isrP = new InputStreamReader(isP);
             brP = new BufferedReader(isrP);
-            
             isB = new FileInputStream("Bagagens.txt");
             isrB = new InputStreamReader(isB);
             brB = new BufferedReader(isrB);
+            isF = new FileInputStream("Voos.txt");
+            isrF = new InputStreamReader(isF);
+            brF = new BufferedReader(isrF);
+            
+            
         } catch (FileNotFoundException ex) {
             Logger.getLogger(File.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -80,6 +89,36 @@ public class File {
         bwB.close();
         oswB.close();
         osB.close();
+    }
+    public  ArrayList<Voo> listFlights() {
+        Voo voo = new Voo();
+        ArrayList<Voo> Voos = new ArrayList<>();
+        String[] elementos;
+        
+        try {
+            String line = brF.readLine();
+            
+                    while(line != null) {
+                        elementos = line.split(",");
+                        voo.setId(elementos[0]);
+                        voo.setLocalPartida(elementos[1]);
+                        voo.setDestino(elementos[2]);
+                        voo.setStatus(elementos[3]);
+//                        voo.setCapacidade(elementos[4]);
+//                        voo.setPesoMaximo(elementos[5]);
+//                        voo.setTipoAviao(elementos[6]);
+//                        
+                        Voos.add(voo);
+                        line = brF.readLine();
+                        voo = new Voo();
+                    }
+                return Voos;
+        } catch (IOException ex) {
+            System.out.println("Erro Ao Adicionar Linha");
+            return null;
+        }
+        
+
     }
     
     public  ArrayList<Bagagem> listBaggage() {
@@ -140,6 +179,7 @@ public class File {
         
 
     }
+    
     
     
     

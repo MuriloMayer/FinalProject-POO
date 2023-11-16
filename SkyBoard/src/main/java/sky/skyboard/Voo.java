@@ -4,29 +4,62 @@ import java.io.ObjectInputFilter.Status;
 import java.util.ArrayList;
 
 public class Voo {
-    public int id;
+    public String id;
     public String status;
     public String destino;
     public String localPartida;
     public String horario;
     public String tipoAviao;
-    public int capacidade;
-    public double pesoMaximo;
+    public String capacidade;
+    public String pesoMaximo;
 
 
-    public Voo(int id, String status,String localPartida, String destino, String horario, String tipoAviao,  int capacidade, double pesoMaximo){
+//    public Voo(int id, String status,String localPartida, String destino, String horario, String tipoAviao,  int capacidade, double pesoMaximo){
+//        this.id = id;
+//        this.status = status;
+//        this.localPartida = localPartida;
+//        this.destino = destino;
+//        this.horario = horario;
+//        this.tipoAviao = tipoAviao;
+//        this.capacidade = capacidade;
+//        this.pesoMaximo =pesoMaximo;
+//
+//    };
+
+
+    public void setId(String id) {
         this.id = id;
+    }
+
+    public void setStatus(String status) {
         this.status = status;
-        this.localPartida = localPartida;
+    }
+
+    public void setDestino(String destino) {
         this.destino = destino;
+    }
+
+    public void setLocalPartida(String localPartida) {
+        this.localPartida = localPartida;
+    }
+
+    public void setHorario(String horario) {
         this.horario = horario;
+    }
+
+    public void setTipoAviao(String tipoAviao) {
         this.tipoAviao = tipoAviao;
+    }
+
+    public void setCapacidade(String capacidade) {
         this.capacidade = capacidade;
-        this.pesoMaximo =pesoMaximo;
+    }
 
-    };
+    public void setPesoMaximo(String pesoMaximo) {
+        this.pesoMaximo = pesoMaximo;
+    }
 
-    public int getId(){
+    public String getId(){
         return id;
     }
 
@@ -49,11 +82,11 @@ public class Voo {
         return tipoAviao;
     }
 
-    public int getCapacidade(){
+    public String getCapacidade(){
         return capacidade;
     }
 
-    public double getPesoMaximo(){
+    public String getPesoMaximo(){
         return pesoMaximo;
     }
 

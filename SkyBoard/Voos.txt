@@ -1,0 +1,4 @@
+01,São Paulo(CGH),Curitiba(CWB),"Aguardando Passageiros";
+02,Rio De Janeiro(GIG),Curitiba(CWB),"Aguardando Passageiros";
+03,Curitiba(CWB),São Paulo(CGH),"Aguardando Passageiros";
+04,Curitiba(CWB),Rio De Janeiro(GIG),"Aguardando Passageiros";

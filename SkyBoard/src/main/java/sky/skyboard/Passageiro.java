@@ -1,18 +1,26 @@
 package sky.skyboard;
 
-import java.util.ArrayList;
-
 public class Passageiro extends Usuario {
     protected String passaporteId;
     protected String codPassagem;
     protected Boolean status;
+
+    protected Object voo;
 
 //    public Passageiro(String cargo, int id,String genero, String nome, String anoNascimento, String cpf, String passaporteId, String codPassagem){
 //        super(cargo, id,genero, nome, anoNascimento, cpf);
 //        this.passaporteId = passaporteId;
 //        this.codPassagem = codPassagem;
 //    }
-    
+
+    public Object getVoo() {
+        return voo;
+    }
+
+    public void setVoo(Object voo) {
+        this.voo = voo;
+    }
+
     public void setStatus(Boolean status) {
         this.status = status;
     }
