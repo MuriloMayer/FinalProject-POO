@@ -4,6 +4,10 @@
  */
 package sky.skyboard;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+import static sky.skyboard.PassengerList.TablePassenger;
+
 /**
  *
  * @author Murilo
@@ -31,7 +35,7 @@ public class BaggageList extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         btnCreateBaggage = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        BaggageList = new javax.swing.JTable();
+        TableBaggage = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,18 +52,23 @@ public class BaggageList extends javax.swing.JFrame {
             }
         });
 
-        BaggageList.setModel(new javax.swing.table.DefaultTableModel(
+        TableBaggage.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
+
             },
             new String [] {
-                "Id", "Passageiro Responsavel"
+                "Passageiro Responsavel", "Peso"
             }
-        ));
-        jScrollPane2.setViewportView(BaggageList);
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(TableBaggage);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -85,10 +94,11 @@ public class BaggageList extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCreateBaggage)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(btnCreateBaggage)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -97,6 +107,7 @@ public class BaggageList extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreateBaggageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreateBaggageActionPerformed
@@ -139,9 +150,33 @@ public class BaggageList extends javax.swing.JFrame {
             }
         });
     }
+        public static void listarBagagens() {
+        DefaultTableModel model = (DefaultTableModel) TableBaggage.getModel();
+        model.setNumRows(0);
+        Object colunas[] = new Object[2];
+        
+        Bagagem bagagem = new Bagagem();
+        File file = new File();
+        
+        ArrayList<Bagagem> bagagens = new ArrayList<Bagagem>();
+        
+        bagagens = file.listBaggage();
+        
+        for(int i = 0; i < bagagens.size(); i++) {
+            
+            bagagem = bagagens.get(i);
+            
+            colunas[0] = bagagem.getNomeDono()+" - "+bagagem.getCpfDono();
+            colunas[1] = bagagem.getPeso();
+
+            
+            model.addRow(colunas);
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable BaggageList;
+    public static javax.swing.JTable TableBaggage;
     private javax.swing.JButton btnCreateBaggage;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

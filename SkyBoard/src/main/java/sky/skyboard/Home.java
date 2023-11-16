@@ -1,5 +1,8 @@
 package sky.skyboard;
 
+import static sky.skyboard.BaggageList.listarBagagens;
+import static sky.skyboard.PassengerList.listarPassageiros;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -31,7 +34,9 @@ public class Home extends javax.swing.JFrame {
         btnPassengerList = new javax.swing.JButton();
         btnBaggageList = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Home");
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 36)); // NOI18N
         jLabel1.setText("SkyBoard");
@@ -77,6 +82,7 @@ public class Home extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnPassengerListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPassengerListActionPerformed
@@ -87,6 +93,7 @@ public class Home extends javax.swing.JFrame {
         Passengers.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         Passengers.setVisible(true);
+        listarPassageiros();
     }//GEN-LAST:event_btnPassengerListActionPerformed
 
     private void btnBaggageListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBaggageListActionPerformed
@@ -97,6 +104,7 @@ public class Home extends javax.swing.JFrame {
         Baggages.setDefaultCloseOperation(EXIT_ON_CLOSE);
         
         Baggages.setVisible(true);
+        listarBagagens();
     }//GEN-LAST:event_btnBaggageListActionPerformed
 
     /**

@@ -4,6 +4,9 @@
  */
 package sky.skyboard;
 
+import java.util.ArrayList;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Murilo
@@ -15,7 +18,9 @@ public class PassengerList extends javax.swing.JFrame {
      */
     public PassengerList() {
         initComponents();
+      
     }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,9 +35,8 @@ public class PassengerList extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         btnCreatePassenger = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        PassengerList = new javax.swing.JTable();
-        jLabel4 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        TablePassenger = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,29 +55,23 @@ public class PassengerList extends javax.swing.JFrame {
             }
         });
 
-        PassengerList.setModel(new javax.swing.table.DefaultTableModel(
+        TablePassenger.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
+
             },
             new String [] {
-                "Nome", "Cpf", "Ativo?"
+                "Nome", "Cpf", "Passaporte", "Passagem"
             }
         ) {
-            Class[] types = new Class [] {
-                java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
             };
 
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(PassengerList);
-
-        jLabel4.setFont(new java.awt.Font("Yu Gothic UI Light", 3, 36)); // NOI18N
-        jLabel4.setText("SkyBoard");
+        jScrollPane1.setViewportView(TablePassenger);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -81,45 +79,34 @@ public class PassengerList extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                    .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.CENTER, layout.createSequentialGroup()
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
                         .addComponent(btnCreatePassenger))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator1)
-                    .addComponent(jLabel2))
+                    .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.CENTER))
                 .addContainerGap())
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnCreatePassenger))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(389, 389, 389))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel4)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCreatePassenger)))
+                .addGap(22, 22, 22)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCreatePassengerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreatePassengerActionPerformed
@@ -158,18 +145,44 @@ public class PassengerList extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PassengerList().setVisible(true);
+                PassengerList passengerList = new PassengerList();
+                passengerList.setVisible(true);
+                listarPassageiros();
             }
         });
     }
+    public static void listarPassageiros() {
+        DefaultTableModel model = (DefaultTableModel) TablePassenger.getModel();
+        model.setNumRows(0);
+        Object colunas[] = new Object[4];
+        
+        Passageiro passageiro = new Passageiro();
+        File file = new File();
+        
+        ArrayList<Passageiro> passageiros = new ArrayList<Passageiro>();
+        
+        passageiros = file.listPassenger();
+        
+        for(int i = 0; i < passageiros.size(); i++) {
+            
+            passageiro = passageiros.get(i);
+            
+            colunas[0] = passageiro.getNome();
+            colunas[1] = passageiro.getCpf();
+            colunas[2] = passageiro.getPassaporteId();
+            colunas[3] = passageiro.getCodPassagem();
+            
+            model.addRow(colunas);
+            
+        }
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTable PassengerList;
+    public static javax.swing.JTable TablePassenger;
     private javax.swing.JButton btnCreatePassenger;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }

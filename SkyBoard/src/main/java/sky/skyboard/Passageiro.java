@@ -5,26 +5,31 @@ import java.util.ArrayList;
 public class Passageiro extends Usuario {
     protected String passaporteId;
     protected String codPassagem;
+    protected Boolean status;
 
-    public Passageiro(String cargo, int id,String genero, String nome, String anoNascimento, String cpf, String passaporteId, String codPassagem){
-        super(cargo, id,genero, nome, anoNascimento, cpf);
+//    public Passageiro(String cargo, int id,String genero, String nome, String anoNascimento, String cpf, String passaporteId, String codPassagem){
+//        super(cargo, id,genero, nome, anoNascimento, cpf);
+//        this.passaporteId = passaporteId;
+//        this.codPassagem = codPassagem;
+//    }
+    
+    public void setStatus(Boolean status) {
+        this.status = status;
+    }
+
+    public void setPassaporteId(String passaporteId) {
         this.passaporteId = passaporteId;
+    }
+
+    public void setCodPassagem(String codPassagem) {
         this.codPassagem = codPassagem;
     }
 
-    public String getCargo(){
-      return cargo;
-    } 
-
-    public int getId(){
-      return id;
-    } 
-
-     public String getGenero(){
+    public String getGenero(){
       return genero;
     }
 
-  public String getNome(){
+     public String getNome(){
       return nome;
     }  
 
@@ -39,6 +44,9 @@ public class Passageiro extends Usuario {
      public String getPassaporteId(){
       return passaporteId;
     }
+     public Boolean getStatus() {
+         return status;
+     }
 
      public String getCodPassagem(){
       return codPassagem;
@@ -47,8 +55,7 @@ public class Passageiro extends Usuario {
     
     public static void exibirPassageiros(Passageiro [] passageiros){
         for(Passageiro passageiro : passageiros){
-            System.out.println( "Cargo: " + passageiro.getCargo() + "\n" +
-                                "ID: " + passageiro.getId() + "\n" +
+            System.out.println(
                                 "Gênero: " + passageiro.getGenero() + "\n" +
                                 "Nome " + passageiro.getNome() + "\n" + 
                                 "Ano de Nascimento: " + passageiro.getAnoNascimento() + "\n" + 

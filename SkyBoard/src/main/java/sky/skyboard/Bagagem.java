@@ -3,54 +3,46 @@ package sky.skyboard;
 import java.util.ArrayList;
 
 public class Bagagem{
-    public boolean checada;
-    public int idBagagem;
-    public int idDono;
-    public double peso;
+    public String nomeDono;
+    public String cpfDono;
+    public String passaporteDono;
+    public String peso;
     public Passageiro passageiro;
+//
+//    public Bagagem(boolean checada, int idBagagem, int idDono, double peso){
+//        this.nomeDono = checada;
+//        this.idBagagem = idBagagem;
+//        this.idDono = idDono;
+//        this.peso = peso;
+//    }
 
-    public Bagagem(boolean checada, int idBagagem, int idDono, double peso){
-        this.checada = checada;
-        this.idBagagem = idBagagem;
-        this.idDono = idDono;
-        this.peso = peso;
+    public String getNomeDono(){
+        return nomeDono;
     }
 
-    public boolean getChecada(){
-        return checada;
+    public String getCpfDono(){
+        return cpfDono;
     }
 
-    public int getIdBagagem(){
-        return idBagagem;
+    public String getPassaporteDono(){
+        return passaporteDono;
     }
 
-    public int getIdDono(){
-        return idDono;
-    }
-
-    public double getPeso(){
+    public String getPeso(){
         return peso;
     }
-
-    public static void exibirBagagem(Bagagem[] bagagens){
-        for(Bagagem bagagem : bagagens){
-        System.out.println("-Bagagem foi checada: " + bagagem.getChecada() + "\n" +
-        "-ID da bagagem: " + bagagem.getIdBagagem() + "\n" +
-       "-Id do Dono da bagagem: " + bagagem.getIdDono() + "\n" +
-       "-Peso: " + bagagem.getPeso() + "\n" +
-       "--------------------"
-       );
-    };
+    
+    public void setNomeDono(String NomeDono) {
+        this.nomeDono = NomeDono;
     }
-
-    public void verificarBagagem(){
-        if (this.checada == true){
-            System.out.println("Bagagem ja foi verificada");
-        
-        }else{
-            System.out.println("Bagagem ainda não foi verificada");
-        }
+    public void setCpfDono(String cpfDono) {
+        this.cpfDono = cpfDono;
     }
-
+    public void setPassaporteDono(String passaporteDono){
+        this.passaporteDono = passaporteDono;
     }
+    public void setPeso(String peso) {
+        this.peso = peso;
+    }
+}
 
