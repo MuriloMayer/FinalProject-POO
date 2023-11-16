@@ -1,6 +1,5 @@
 package sky.skyboard;
 
-import java.util.ArrayList;
 
 public class Usuario {
     protected String cargo;

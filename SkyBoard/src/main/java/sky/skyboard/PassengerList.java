@@ -60,12 +60,19 @@ public class PassengerList extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Nome", "Cpf", "Passaporte", "Passagem"
+                "Nome", "Cpf", "Passaporte", "Passagem", "Voando?"
             }
         ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false
+            Class[] types = new Class [] {
+                java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, true
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
@@ -154,7 +161,7 @@ public class PassengerList extends javax.swing.JFrame {
     public static void listarPassageiros() {
         DefaultTableModel model = (DefaultTableModel) TablePassenger.getModel();
         model.setNumRows(0);
-        Object colunas[] = new Object[4];
+        Object colunas[] = new Object[5];
         
         Passageiro passageiro = new Passageiro();
         File file = new File();
@@ -171,6 +178,7 @@ public class PassengerList extends javax.swing.JFrame {
             colunas[1] = passageiro.getCpf();
             colunas[2] = passageiro.getPassaporteId();
             colunas[3] = passageiro.getCodPassagem();
+            colunas[4] = passageiro.getStatus();
             
             model.addRow(colunas);
             
